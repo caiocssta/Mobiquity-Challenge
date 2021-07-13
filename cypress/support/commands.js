@@ -9,3 +9,9 @@ Cypress.Commands.add('getPostsByUserId', (userId) => {
         cy.wrap(response.body).as('posts')
     })
 })
+
+Cypress.Commands.add('getCommentsByPost', (postId) => {
+    cy.request('GET', "/posts/" + postId + "/comments").then((response) => {
+        return(response.body)
+    })
+})
