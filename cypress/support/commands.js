@@ -1,6 +1,6 @@
-Cypress.Commands.add('getUserId', (username) => {
+Cypress.Commands.add('getUserData', (username) => {
     cy.request('GET', "/users?username=" + username).then((response) => {
-        cy.wrap(response.body[0].id).as('userId')
+        cy.wrap(response.body).as('userData')
     })
 })
 
