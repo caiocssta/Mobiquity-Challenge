@@ -9,3 +9,16 @@ workflows:
     jobs:
       - cypress/run:
           group: 'API Test Challenge'
+          post-steps:
+            - run: 
+                when: always
+                name: Merge MochaAwesome Reports
+                command: npx mochawesome-merge cypress/results/json/*.json > cypress/results/mochawesome-bundle.json
+            - run: 
+                when: always
+                name: Create mochawesome html report
+                command: npx marge cypress/results/mochawesome-bundle.json -f report -o cypress/results/mochareports
+            - store_artifacts:
+                path: cypress/results/mochareports
+            - store_test_results:
+                path: cypress/results
