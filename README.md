@@ -1,6 +1,6 @@
 # Mobiquity QA Challenge
 
-### Test cases covered
+### Test cases
 - Returns the correct user ID for specific user
 - Returns the correct post length when making a request
 - Validate emails of comments authors in posts
@@ -29,7 +29,7 @@ Tests can be ran using the following command:
 npm run test
 ```
 
-### Test Reports
+### Test reporting
 The test reports among with the HTML page generated are stored in the **results/mochareports** folder
 
 ### CircleCI
