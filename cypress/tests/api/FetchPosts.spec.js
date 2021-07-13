@@ -54,4 +54,35 @@ describe('Validate user posts and data', () => {
         cy.request({url: '/users/333', failOnStatusCode: false }).should('have.property', 'status', 404)
     })
 
+    it('Return status code 201 when creating a new post', () => {
+        cy.request({
+            url: '/posts', 
+            method: 'POST',
+            body: JSON.stringify({
+                title: 'foo',
+                body: 'bar',
+                userId: 1,
+            }), 
+        }).should('have.property', 'status', 201)
+    })
+
+    it('Return status code 200 when updating an existing post', () => {
+        cy.request({
+            url: '/posts/1', 
+            method: 'PUT',
+            body: JSON.stringify({
+                title: 'foo',
+                body: 'bar',
+                userId: 1,
+            }), 
+        }).should('have.property', 'status', 200)
+    })
+    
+    it('Return status code 200 when deleting an existing post', () => {
+        cy.request({
+            url: '/posts/1', 
+            method: 'DELETE'
+        }).should('have.property', 'status', 200)
+    })
+
 })
