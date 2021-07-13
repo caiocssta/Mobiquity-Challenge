@@ -8,5 +8,4 @@ workflows:
   api-testing:
     jobs:
       - cypress/run:
-          record: true # record results on Cypress Dashboard
           group: 'API Test Challenge'
