@@ -4,3 +4,8 @@ Cypress.Commands.add('getUserId', (username) => {
     })
 })
 
+Cypress.Commands.add('getPostsByUserId', (userId) => {
+    cy.request('GET', "/posts?userId=" + userId).then((response) => {
+        cy.wrap(response.body).as('posts')
+    })
+})
