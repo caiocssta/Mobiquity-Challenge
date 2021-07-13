@@ -1,4 +1,6 @@
 {
     "baseUrl": "https://jsonplaceholder.typicode.com/",
-    "integrationFolder": "cypress/tests"
+    "integrationFolder": "cypress/tests",
+    "screenshotOnRunFailure": false,
+    "video": false
 }
